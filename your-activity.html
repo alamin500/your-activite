@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./your-activity.css" />
+    <!-- Chart Script Link  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="your-activite-section">
+        <div class="incress-activity">
+          <div>
+            <h1>Chart</h1>
+            <canvas
+              id="myChart"
+              style="width: 100%; max-width: 600px; height: 218px"
+            ></canvas>
+          </div>
+          <div>
+            <h3>To increase your Activity:</h3>
+            <ul>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Lorem ipsum dolor sit amet.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-------------------- Activity Report Chart ------------------ -->
+    <script>
+      var xValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+      var yValues = [
+        100, 010, 025, 017, 035, 28, 08, 065, 037, 040, 29, 037, 013, 055, 035,
+        030,
+      ];
+      var barColors = [
+        '#FFFFFF',
+        '#F5F5F5',
+        '#F5F5F5',
+        '#F5F5F5',
+        '#525DED',
+        '#F5F5F5',
+        '#F5F5F5',
+        '#FFA500',
+        '#F5F5F5',
+        '#F5F5F5',
+        '#F5F5F5',
+        '#F5F5F5',
+        '#334F55',
+        '#525DED',
+        '#F5F5F5',
+        '#FFA500',
+      ];
+
+      new Chart('myChart', {
+        type: 'bar',
+        data: {
+          labels: xValues,
+          datasets: [
+            {
+              backgroundColor: barColors,
+              data: yValues,
+            },
+          ],
+        },
+
+        options: {
+          legend: {
+            display: false,
+          },
+          tooltips: {
+            callbacks: {
+              label: function (tooltipItem) {
+                return tooltipItem.yLabel;
+              },
+            },
+          },
+
+          scales: {
+            xAxes: [
+              {
+                barThickness: 7, // number (pixels) or 'flex'
+                maxBarThickness: 7, // number (pixels)
+                gridLines: {
+                  display: false,
+                },
+              },
+            ],
+            yAxes: [
+              {
+                gridLines: {
+                  display: true,
+                  borderDash: [7, 4],
+                },
+              },
+            ],
+          },
+          title: {
+            display: true,
+            padding: 0,
+            fontSize: 11,
+            fontColor: '#334F55',
+            text: 'Number Completed',
+            position: 'left',
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
