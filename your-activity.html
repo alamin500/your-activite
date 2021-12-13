@@ -7,18 +7,20 @@
     <title>Document</title>
     <link rel="stylesheet" href="./your-activity.css" />
     <!-- Chart Script Link  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
   </head>
   <body>
     <main>
       <div class="your-activite-section">
         <div class="incress-activity">
           <div>
-            <h1>Chart</h1>
-            <canvas
+            <!-- 1st Chart  -->
+            <!-- <canvas
               id="myChart"
               style="width: 100%; max-width: 600px; height: 218px"
-            ></canvas>
+            ></canvas> -->
           </div>
           <div>
             <h3>To increase your Activity:</h3>
@@ -30,11 +32,36 @@
             </ul>
           </div>
         </div>
+        <div class="incress-activity">
+          <div>
+           <!-- 2nd Chart  -->
+           <h1>2nd Chart</h1>
+            <canvas
+              id="myChart2"
+              style="width: 100%; max-width: 319px; height: 273px"
+            ></canvas>
+          </div>
+          <div>
+           <!-- 3rd Chart  -->
+           <h1>3rd Chart</h1>
+            <canvas
+              id="myChart3"
+              style="width: 100%; max-width: 335px; height: 273px"
+            ></canvas>
+          </div>
+        </div>
       </div>
     </main>
     <!-------------------- Activity Report Chart ------------------ -->
     <script>
-      var xValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+      var xValues = [
+        'Week 1',
+        'Week 2',
+        'Week 3',
+        'Week 4',
+        'Week 5',
+        'Week 6',
+      ];
       var yValues = [
         100, 010, 025, 017, 035, 28, 08, 065, 037, 040, 29, 037, 013, 055, 035,
         030,
@@ -57,6 +84,8 @@
         '#F5F5F5',
         '#FFA500',
       ];
+      var yValues = [10, 10, 10, 10, 10, 10];
+      var barColors = ['#FFA500'];
 
       new Chart('myChart', {
         type: 'bar',
@@ -87,6 +116,7 @@
               {
                 barThickness: 7, // number (pixels) or 'flex'
                 maxBarThickness: 7, // number (pixels)
+                stacked: true,
                 gridLines: {
                   display: false,
                 },
@@ -95,9 +125,9 @@
             yAxes: [
               {
                 gridLines: {
-                  display: true,
-                  borderDash: [7, 4],
+                  display: false,
                 },
+                stacked: true,
               },
             ],
           },
@@ -108,6 +138,152 @@
             fontColor: '#334F55',
             text: 'Number Completed',
             position: 'left',
+          },
+        },
+      });
+    </script>
+
+    <!-- 2nd -->
+    <!-- <script>
+      const ctx = document.getElementById('myChart2').getContext('2d');
+      const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+          datasets: [
+            {
+              label: 'Time taken to accept job',
+              data: [4, 8, 6, 8, 4, 8],
+              backgroundColor: ['rgba(153, 102, 255, 1)'],
+              borderColor: ['rgba(153, 102, 255, 1)'],
+              borderWidth: 1,
+                tension: 0.2,
+              barThickness: 7, // number (pixels) or 'flex'
+              maxBarThickness: 7, // number (pixels)
+            },
+            {
+              label: 'Time taken to complete job',
+              data: [3, 3, 5, 1, 6, 4],
+              backgroundColor: ['rgba(255, 159, 64, 1)'],
+              borderColor: ['rgba(255, 159, 64, 1)'],
+              borderWidth: 1,
+               tension: 0.2,
+              barThickness: 7, // number (pixels) or 'flex'
+              maxBarThickness: 7, // number (pixels)
+              beginAtZero: true,
+              min: 0,
+              max: 10,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            x: {
+              stacked: true,
+              grid: {
+                display: false,
+              },
+              gridLines: {
+                zeroLineColor: 'transparent',
+              },
+            },
+            y: {
+              ticks: {
+                beginAtZero: true,
+
+                callback: function (value) {
+                  return value + 1;
+                },
+              },
+              stacked: true,
+              // scaleLabel: {
+              //   display: true,
+              //   labelString: 'Percentage',
+              // },
+              min: 0,
+              max: 12,
+
+              beginAtZero: true,
+              stacked: true,
+              grid: {
+                display: true,
+              },
+            },
+          },
+        },
+      });
+    </script> -->
+
+    <!-- Chart - 3  -->
+    <script>
+      const ctx = document.getElementById('myChart3').getContext('2d');
+      const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+          datasets: [
+            {
+              label: 'Jobs completed',
+              data: [35, 46, 25, 25, 22, 30],
+              backgroundColor: ['rgba(153, 102, 255, 1)'],
+              borderColor: ['rgba(153, 102, 255, 1)'],
+              borderWidth: 1,
+              barThickness: 7, // number (pixels) or 'flex'
+              maxBarThickness: 7, // number (pixels)
+            },
+            {
+              label: 'Jobs accepted',
+              data: [20, 20, 5, 25, 65, 25],
+              backgroundColor: ['rgba(255, 159, 64, 1)'],
+              borderColor: ['rgba(255, 159, 64, 1)'],
+              borderWidth: 1,
+
+              barThickness: 7, // number (pixels) or 'flex'
+              maxBarThickness: 7, // number (pixels)
+              beginAtZero: true,
+              min: 0,
+              max: 100,
+              tricks: {
+                callback: function (value, index, values) {
+                  return value + '%';
+                },
+              },
+            },
+          ],
+        },
+        options: {
+          scales: {
+            x: {
+              stacked: true,
+              grid: {
+                display: false,
+              },
+              gridLines: {
+                zeroLineColor: 'transparent',
+              },
+            },
+            y: {
+              ticks: {
+                beginAtZero: true,
+
+                callback: function (value) {
+                  return value + '%';
+                },
+              },
+              stacked: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Percentage',
+              },
+              min: 0,
+              max: 100,
+
+              beginAtZero: true,
+              stacked: true,
+              grid: {
+                display: false,
+              },
+            },
           },
         },
       });

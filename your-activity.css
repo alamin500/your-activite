@@ -1,6 +1,18 @@
 .your-activite-section{
  width: 812px;
+ padding: 16px 115px 19px 29px;
+ background: #EFEFEF;
+border-radius: 20px;
 }
 .incress-activity{
  display: flex;
+}
+#myChart2{
+ background: #ffff;
+ border-radius: 20px;
+ margin-right: 14px;
+}
+#myChart3{
+ background: #ffff;
+ border-radius: 20px;
 }
