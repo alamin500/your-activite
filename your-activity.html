@@ -53,99 +53,52 @@
         </div>
       </div>
     </main>
-    <!-------------------- Activity Report Chart ------------------ -->
-    <script>
-      var xValues = [
-        'Week 1',
-        'Week 2',
-        'Week 3',
-        'Week 4',
-        'Week 5',
-        'Week 6',
-      ];
-      var yValues = [
-        100, 010, 025, 017, 035, 28, 08, 065, 037, 040, 29, 037, 013, 055, 035,
-        030,
-      ];
-      var barColors = [
-        '#FFFFFF',
-        '#F5F5F5',
-        '#F5F5F5',
-        '#F5F5F5',
-        '#525DED',
-        '#F5F5F5',
-        '#F5F5F5',
-        '#FFA500',
-        '#F5F5F5',
-        '#F5F5F5',
-        '#F5F5F5',
-        '#F5F5F5',
-        '#334F55',
-        '#525DED',
-        '#F5F5F5',
-        '#FFA500',
-      ];
-      var yValues = [10, 10, 10, 10, 10, 10];
-      var barColors = ['#FFA500'];
-
-      new Chart('myChart', {
-        type: 'bar',
-        data: {
-          labels: xValues,
-          datasets: [
-            {
-              backgroundColor: barColors,
-              data: yValues,
-            },
-          ],
-        },
-
-        options: {
-          legend: {
-            display: false,
-          },
-          tooltips: {
-            callbacks: {
-              label: function (tooltipItem) {
-                return tooltipItem.yLabel;
-              },
-            },
-          },
-
-          scales: {
-            xAxes: [
-              {
-                barThickness: 7, // number (pixels) or 'flex'
-                maxBarThickness: 7, // number (pixels)
-                stacked: true,
-                gridLines: {
-                  display: false,
-                },
-              },
+    <!-------------------- 1st Medium Speedo-Meter ------------------ -->
+ <script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 10, 11, 14, 15],
+            backgroundColor: [
+               'rgba(164, 254, 132, 1)',
+                'rgba(130, 238, 79, 1)',
+                'rgba(85, 218, 52, 1)',
+                'rgba(197, 192, 192, 1)',
+                'rgba(178, 178, 178, 1)',
             ],
-            yAxes: [
-              {
-                gridLines: {
-                  display: false,
-                },
-                stacked: true,
-              },
+            borderColor: [
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
             ],
-          },
-          title: {
-            display: true,
-            padding: 0,
-            fontSize: 11,
-            fontColor: '#334F55',
-            text: 'Number Completed',
-            position: 'left',
-          },
+            borderWidth: 2,
+            cutout: '85%',
+            circumference: 180,
+            rotation: 270,
+            borderRadius: 5,
+              display: false,
+        }]
+    },
+    options: {
+      responsive: false,
+      plugins:{
+              legend: {
+          display: false,
         },
-      });
-    </script>
+      },
+
+    }
+});
+</script>
 
     <!-- 2nd -->
-    <!-- <script>
+    <script>
       const ctx = document.getElementById('myChart2').getContext('2d');
       const myChart = new Chart(ctx, {
         type: 'line',
@@ -213,7 +166,7 @@
           },
         },
       });
-    </script> -->
+    </script>
 
     <!-- Chart - 3  -->
     <script>
