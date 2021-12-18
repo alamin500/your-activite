@@ -8,20 +8,14 @@
     <link rel="stylesheet" href="./your-activity.css" />
     <!-- Chart Script Link  -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
   </head>
   <body>
     <main>
       <div class="your-activite-section">
         <div class="incress-activity">
-          <div>
+          <div class="chart-one">
             <!-- 1st Chart  -->
-            <h1>1st Chart</h1>
-            <canvas
-              id="myChart"
-              style="width: 100%; max-width: 319px; height: 171px"
-            ></canvas>
+            <canvas id="myChart" style="width: 319px; height: 171px"></canvas>
           </div>
           <div>
             <h3>To increase your Activity:</h3>
@@ -35,95 +29,108 @@
         </div>
         <div class="incress-activity">
           <div>
-           <!-- 2nd Chart  -->
-           <h1>2nd Chart</h1>
-            <canvas
-              id="myChart2"
-              style="width: 100%; max-width: 319px; height: 273px"
-            ></canvas>
+            <!-- 2nd Chart  -->
+            <div class="chart-title">
+              <div class="title-content">
+                <img width="11px" height="5px" src="./images/blue.png" alt="" />
+                <p>Time taken to accept job</p>
+              </div>
+              <div class="title-content">
+                <img width="11px" height="5px" src="./images/yellow.png" alt="" />
+                <p>Time taken to complete job</p>
+              </div>
+            </div>
+            <canvas id="myChart2" style="width: 319px; height: 273px"></canvas>
           </div>
           <div>
-           <!-- 3rd Chart  -->
-           <h1>3rd Chart</h1>
-            <canvas
-              id="myChart3"
-              style="width: 100%; max-width: 335px; height: 273px"
-            ></canvas>
+            <!-- 3rd Chart  -->
+                        <div class="chart-title">
+              <div class="title-content">
+                <img width="11px" height="5px" src="./images/blue.png" alt="" />
+                <p>Job accepted</p>
+              </div>
+              <div class="title-content">
+                <img width="11px" height="5px" src="./images/yellow.png" alt="" />
+                <p>Jobs completed</p>
+              </div>
+            </div>
+            <canvas id="myChart3" style="width: 335px; height: 273px"></canvas>
           </div>
         </div>
       </div>
     </main>
     <!-------------------- 1st Medium Speedo-Meter ------------------ -->
- <script>
-const ctx = document.getElementById('myChart').getContext('2d');
-const myChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 10, 11, 14, 15],
-            backgroundColor: [
-               'rgba(164, 254, 132, 1)',
+    <script>
+      const ctx = document.getElementById('myChart').getContext('2d');
+      const myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          datasets: [
+            {
+              label: '# of Votes',
+              data: [12, 10, 11, 14, 15],
+              backgroundColor: [
+                'rgba(164, 254, 132, 1)',
                 'rgba(130, 238, 79, 1)',
                 'rgba(85, 218, 52, 1)',
                 'rgba(197, 192, 192, 1)',
                 'rgba(178, 178, 178, 1)',
-            ],
-            borderColor: [
+              ],
+              borderColor: [
                 'rgba(255, 255, 255, 1)',
                 'rgba(255, 255, 255, 1)',
                 'rgba(255, 255, 255, 1)',
                 'rgba(255, 255, 255, 1)',
                 'rgba(255, 255, 255, 1)',
-            ],
-            borderWidth: 2,
-            cutout: '85%',
-            circumference: 180,
-            rotation: 270,
-            borderRadius: 5,
+              ],
+              borderWidth: 2,
+              cutout: '85%',
+              circumference: 180,
+              rotation: 270,
+              borderRadius: 5,
               display: false,
-        }]
-    },
-    options: {
-      responsive: false,
-      plugins:{
-              legend: {
-          display: false,
+            },
+          ],
         },
-      },
-
-    }
-});
-</script>
+        options: {
+          responsive: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        },
+      });
+    </script>
 
     <!-- 2nd -->
     <script>
-      const ctx = document.getElementById('myChart2').getContext('2d');
-      const myChart = new Chart(ctx, {
+      const ctxa = document.getElementById('myChart2').getContext('2d');
+      const myCharta = new Chart(ctxa, {
         type: 'line',
         data: {
-          labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+          labels: ['', 'Day01', '02', '03', '04', '05', '06'],
           datasets: [
             {
               label: 'Time taken to accept job',
-              data: [4, 8, 6, 8, 4, 8],
+              data: [3, 4, 5, 7, 3, 7],
               backgroundColor: ['rgba(153, 102, 255, 1)'],
               borderColor: ['rgba(153, 102, 255, 1)'],
-              borderWidth: 1,
-                tension: 0.2,
+              borderWidth: 2,
+              tension: 0.2,
               barThickness: 7, // number (pixels) or 'flex'
               maxBarThickness: 7, // number (pixels)
             },
             {
               label: 'Time taken to complete job',
-              data: [3, 3, 5, 1, 6, 4],
+              data: [3, 4, 5, 1, 6, 4],
               backgroundColor: ['rgba(255, 159, 64, 1)'],
               borderColor: ['rgba(255, 159, 64, 1)'],
-              borderWidth: 1,
-               tension: 0.2,
-              barThickness: 7, // number (pixels) or 'flex'
-              maxBarThickness: 7, // number (pixels)
+              borderWidth: 2,
+              tension: 0.2,
+              barThickness: 27, // number (pixels) or 'flex'
+              maxBarThickness: 27, // number (pixels)
               beginAtZero: true,
               min: 0,
               max: 10,
@@ -131,6 +138,11 @@ const myChart = new Chart(ctx, {
           ],
         },
         options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
           scales: {
             x: {
               stacked: true,
@@ -150,10 +162,6 @@ const myChart = new Chart(ctx, {
                 },
               },
               stacked: true,
-              // scaleLabel: {
-              //   display: true,
-              //   labelString: 'Percentage',
-              // },
               min: 0,
               max: 12,
 
@@ -170,8 +178,8 @@ const myChart = new Chart(ctx, {
 
     <!-- Chart - 3  -->
     <script>
-      const ctx = document.getElementById('myChart3').getContext('2d');
-      const myChart = new Chart(ctx, {
+      const ctxb = document.getElementById('myChart3').getContext('2d');
+      const myChartb = new Chart(ctxb, {
         type: 'bar',
         data: {
           labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
@@ -206,6 +214,11 @@ const myChart = new Chart(ctx, {
           ],
         },
         options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
           scales: {
             x: {
               stacked: true,
